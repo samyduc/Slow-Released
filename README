@@ -1,0 +1,13 @@
+
+Samy Duc aka deckardfr with courtesy of TAD.
+Slow-released : Demonstrator for slow HTTP POST denial of service
+
+During POST, web servers check HTTP header attribute "Content-Length" value.
+Slow web clients (rnis, 56k, 3G) send data with small burst of data. So they perform
+multiple post request to send large amount of file. Web servers keep open the tcp
+connexion for theim long enough to finish the transmission.
+Problem : what happens if i send one byte and do not send any additionnal data with
+a wrong length value. It is what this soft show. It can perform slow released V2, aka
+sending one more byte juste before the webserver timeout value for inactive link, to
+keep it open. It is a DDOS attack for poor.
+
